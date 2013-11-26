@@ -56,7 +56,7 @@ then
 		else
 			echo "Please enter y or n."
 			exit 0
-		fi	
+		fi
         VIDEO_DRIVER="VideoLinuxV4L"
         CFLAG="-O -I/usr/X11R6/include"
         LDFLAG="-L/usr/X11R6/lib"
@@ -79,7 +79,7 @@ then
 		else
 			echo "Please enter y or n."
 			exit 0
-		fi		
+		fi
         VIDEO_DRIVER="VideoLinuxV4L"
         CFLAG="-O -I/usr/X11R6/include -DUSE_EYETOY"
         LDFLAG="-L/usr/X11R6/lib"
@@ -102,7 +102,7 @@ then
 		else
 			echo "Please enter y or n."
 			exit 0
-		fi		
+		fi
         VIDEO_DRIVER="VideoLinuxV4L2"
         CFLAG="-O -I/usr/X11R6/include -DUSE_EYETOY -I/usr/src/linux-headers-`uname -r`/include -I/usr/src/linux-headers-`uname -r`/arch/$ARCH/include"
         LDFLAG="-L/usr/X11R6/lib"
@@ -133,7 +133,7 @@ then
         VIDEO_DRIVER="VideoGStreamer"
 		GST_INCLUDE=`pkg-config --cflags gstreamer-0.10`
 		GST_LIBS=`pkg-config --libs gstreamer-0.10`
-		
+
 		CFLAG="-O $GST_INCLUDE -I/usr/X11R6/include"
         LDFLAG="$GST_LIBS -L/usr/X11R6/lib -L/usr/local/lib"
         ARFLAG="rs"
@@ -157,7 +157,7 @@ then
     else
         echo "Please enter y or n."
         exit 0
-    fi	
+    fi
 elif [ "$E" = "IRIX" ]
 then
     VIDEO_DRIVER="VideoSGI"
@@ -280,5 +280,8 @@ fi
 
 echo "  create include/AR/config.h"
 sed -f $SED <include/AR/config.h.in > include/AR/config.h
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+mkdir $DIR/bin
 
 echo "Done."
