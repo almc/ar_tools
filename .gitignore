@@ -11,3 +11,6 @@
 *.lai
 *.la
 *.a
+
+ar_pose/src/ar_pose/
+artoolkit/bin/
